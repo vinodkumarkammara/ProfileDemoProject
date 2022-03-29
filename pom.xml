@@ -13,8 +13,42 @@
   	</resources>
   </build>
   
+  <!--  Profiles for different environments -->
+  <profiles>
   
-  <build>
+  <!-- dev environment profile -->
+  	<profile>
+  		<id>dev</id>
+  		<build>
+  			<finalName>${project.artifactId}-dev</finalName>
+  			<filters>
+  				<filter>src/main/resources/dev.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	
+  	 <!-- qa environment profile -->
+  	<profile>
+  		<id>qa</id>
+  		<build>
+  			<finalName>${project.artifactId}-qa</finalName>
+  			<filters>
+  				<filter>src/main/resources/qa.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	
+  	 <!-- prod environment profile -->
+  	<profile>
+  		<id>prod</id>
+  		<build>
+  			<finalName>${project.artifactId}-prod</finalName>
+  			<filters>
+  				<filter>src/main/resources/prod.properties</filter>
+  			</filters>
+  		</build>
+  	</profile>
+  	<build>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -202,42 +236,5 @@
       </plugins>
     </pluginManagement>
   </build>
-  
-  <!--  Profiles for different environments -->
-  <profiles>
-  
-  <!-- dev environment profile -->
-  	<profile>
-  		<id>dev</id>
-  		<build>
-  			<finalName>${project.artifactId}-dev</finalName>
-  			<filters>
-  				<filter>src/main/resources/dev.properties</filter>
-  			</filters>
-  		</build>
-  	</profile>
-  	
-  	 <!-- qa environment profile -->
-  	<profile>
-  		<id>qa</id>
-  		<build>
-  			<finalName>${project.artifactId}-qa</finalName>
-  			<filters>
-  				<filter>src/main/resources/qa.properties</filter>
-  			</filters>
-  		</build>
-  	</profile>
-  	
-  	 <!-- prod environment profile -->
-  	<profile>
-  		<id>prod</id>
-  		<build>
-  			<finalName>${project.artifactId}-prod</finalName>
-  			<filters>
-  				<filter>src/main/resources/prod.properties</filter>
-  			</filters>
-  		</build>
-  	</profile>
-  	
   </profiles>
 </project>
